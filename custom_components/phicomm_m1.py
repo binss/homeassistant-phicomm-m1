@@ -122,8 +122,10 @@ class PhicommM1Server(TCPServer):
                 self._status.state = self.parse_data(data)
                 # log.info(self._status.state)
             except StreamClosedError:
-                log.info("Client " + self.clients[fileno]['ip'] + " left.")
-                del self.clients[fileno]
+                if self.clients.get(fileno):
+                    log.info("Client " + self.clients[fileno]['ip'] + " left.")
+                    del self.clients[fileno]
+                    break
 
     def parse_data(self, data):
         pattern = r"(\{.*?\})"
@@ -141,8 +143,9 @@ class PhicommM1Server(TCPServer):
                 stream = client['stream']
                 stream.write(data)
             except StreamClosedError:
-                log.info("Client " + client['ip'] + " left")
-                del self.clients[fileno]
+                if self.clients.get(fileno):
+                    log.info("Client " + self.clients[fileno]['ip'] + " left.")
+                    del self.clients[fileno]
 
     def change_brightness(self):
         for fileno, client in self.clients.items():
@@ -152,8 +155,9 @@ class PhicommM1Server(TCPServer):
                 stream.write(data)
                 self._status.brightness = self._status.target_brightness
             except StreamClosedError:
-                log.info("Client " + client['ip'] + " left")
-                del self.clients[fileno]
+                if self.clients.get(fileno):
+                    log.info("Client " + self.clients[fileno]['ip'] + " left.")
+                    del self.clients[fileno]
 
     def update(self):
         if self._status.target_brightness != self._status.brightness:
