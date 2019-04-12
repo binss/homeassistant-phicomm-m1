@@ -20,7 +20,12 @@ Install tornado since it rely on tornado.tcpserver:
 pip3 install tornado
 ```
 
-Put homeassistant-phicomm-m1 codes to your homeassistant path (e.g. ~/.homeassistant), add
+Clone homeassistant-phicomm-m1 codes to appropriate path:
+
+* If you are using HA 0.88+, clone the master branch
+* Otherwise clone the old branch
+
+Then add
 
 ```
 phicomm_m1:
