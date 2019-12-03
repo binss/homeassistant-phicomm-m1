@@ -1,0 +1,8 @@
+{
+    "domain": "phicomm_m1",
+    "name": "Phicomm M1 sensor",
+    "documentation": "https://github.com/binss/homeassistant-phicomm-m1",
+    "dependencies": [],
+    "codeowners": ["@binss", "@nykma"],
+    "requirements": ["tornado==6.0.3"]
+}
