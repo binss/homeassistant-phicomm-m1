@@ -1,4 +1,5 @@
 {
+    "version": "0.1.0",
     "domain": "phicomm_m1",
     "name": "Phicomm M1 sensor",
     "documentation": "https://github.com/binss/homeassistant-phicomm-m1",
