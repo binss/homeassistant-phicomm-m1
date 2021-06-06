@@ -12,7 +12,7 @@ import logging
 import datetime
 
 from homeassistant.const import TEMP_CELSIUS
-from homeassistant.components.homekit.const import DEVICE_CLASS_CO2
+from homeassistant.components.homekit.type_sensors import DEVICE_CLASS_CO
 from homeassistant.helpers.entity import Entity
 
 log = logging.getLogger(__name__)
@@ -134,4 +134,4 @@ class PhicommM1Hcho(Entity):
         """Since homeassistant-homekit do not support hcho sensor,
         We set our class to co2 for being showed in homekit.
         """
-        return DEVICE_CLASS_CO2
+        return DEVICE_CLASS_CO

@@ -14,6 +14,8 @@ There are some similar plugins for m1 on the forum(e.g. hassbian). However, I fo
 
 ## How to use it
 
+> If your Home Assistant version is greater than 0.92.0, probably you don't need to manually install `tornado` like below (since this requirement is declared in `manifest.json`).
+
 Install tornado since it rely on tornado.tcpserver:
 
 ```
@@ -46,4 +48,3 @@ The phicomm_m1 component is a TCP server which accept the connection from m1 and
 The sensor/phicomm_m1 component get the status from server and update homeassistant entity status.
 
 The light/phicomm_m1 component allow user to control the brightness of m1 screen by communicating with server.
-

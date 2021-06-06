@@ -13,7 +13,7 @@ import datetime
 
 
 from homeassistant.components.light import (
-    ATTR_BRIGHTNESS, Light, SUPPORT_BRIGHTNESS)
+    ATTR_BRIGHTNESS, LightEntity, SUPPORT_BRIGHTNESS)
 
 log = logging.getLogger(__name__)
 
@@ -33,7 +33,7 @@ def setup_platform(hass, config, add_devices, discovery_info=None):
     add_devices(devs)
 
 
-class PhicommM1Brightness(Light):
+class PhicommM1Brightness(LightEntity):
     """Representation of an m1 screen brightness."""
 
     def __init__(self, status, icon=None):
